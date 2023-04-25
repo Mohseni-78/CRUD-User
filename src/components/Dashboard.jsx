@@ -1,10 +1,19 @@
+import { useEffect } from "react";
+// React Redux ============>
 import { useDispatch, useSelector } from "react-redux";
+import { cloneStorageInState, deleteUser } from "../../redux/usersAction";
+// React Router Dom =============>
 import { Link } from "react-router-dom";
-import { deleteUser } from "../../redux/usersAction";
+// Custom Hooks =========>
+import useStorage from "../../hooks/useStorage";
 
 const Dashboard = () => {
+  const { storage } = useStorage("users");
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
+  useEffect(() => {
+    storage && dispatch(cloneStorageInState(storage));
+  }, []);
 
   const deleteHandler = (e, email) => {
     e.preventDefault();

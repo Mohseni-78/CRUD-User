@@ -1,4 +1,5 @@
-import { CREATE_USER, DELETE_USER, UPDATE_USER } from "../constants";
+// Constants ==========>
+import { CLONE_STORAGE_IN_STATE, CREATE_USER, DELETE_USER, UPDATE_USER } from "../constants";
 
 const createUser = (payload) => {
   return {
@@ -18,5 +19,11 @@ const deleteUser = (email) => {
     type: DELETE_USER,
     email,
   };
+}
+const cloneStorageInState = (payload) => {
+  return {
+    type: CLONE_STORAGE_IN_STATE,
+    payload
+  };
 };
-export { createUser, updateUser, deleteUser };
+export { createUser, updateUser, deleteUser ,cloneStorageInState};

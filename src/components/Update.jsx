@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
+// React Redux ============>
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import CreatableReactSelect from "react-select/creatable";
-import { v4 as uuidV4 } from "uuid";
-import { useNavigate } from "react-router-dom";
 import { updateUser } from "../../redux/usersAction";
+// React Router Dom =============>
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+// CreatableReactSelect ==========>
+import CreatableReactSelect from "react-select/creatable";
+// Uuid =============>
+import { v4 as uuidV4 } from "uuid";
+// React Hot Toast ===========>
+import { toast } from "react-hot-toast";
 
 const Update = () => {
   const [inputData, setInputData] = useState({
@@ -35,7 +41,7 @@ const Update = () => {
     try {
       dispatch(updateUser({ ...inputData, skills }, email));
     } catch (err) {
-      console.log(err);
+      toast.error(err);
     }
   };
   const changeHandler = (e) => {

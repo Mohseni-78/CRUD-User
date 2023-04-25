@@ -1,12 +1,16 @@
 import { useState } from "react";
+// React Redux ============>
 import { useDispatch, useSelector } from "react-redux";
-import CreatableReactSelect from "react-select/creatable";
-import { v4 as uuidV4 } from "uuid";
 import { createUser } from "../../redux/usersAction";
+// CreatableReactSelect ==========>
+import CreatableReactSelect from "react-select/creatable";
+// Uuid =============>
+import { v4 as uuidV4 } from "uuid";
+// React Router Dom =============>
 import { useNavigate } from "react-router-dom";
 
 const Create = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const state = useSelector((state) => state);
   console.log(state);
   const [inputData, setInputData] = useState({
@@ -122,16 +126,10 @@ const Create = () => {
           />
         </div>
         <div className="flex items-center gap-5 justify-center">
-          <button
-            onClick={()=>navigate("/")}
-            className="bg-red-500 btn"
-          >
+          <button onClick={() => navigate("/")} className="bg-red-500 btn">
             Back
           </button>
-          <button
-            type="submit"
-            className="bg-green-500 btn"
-          >
+          <button type="submit" className="bg-green-500 btn">
             Submit
           </button>
         </div>
