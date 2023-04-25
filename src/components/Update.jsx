@@ -66,6 +66,7 @@ const Update = () => {
             value={inputData.name}
             onChange={changeHandler}
             className="w-full placeholder:text-gray-400 placeholder:text-sm p-[10px] border outline-0 rounded-lg"
+            required
           />
         </div>
         <div>
@@ -80,6 +81,7 @@ const Update = () => {
             value={inputData.lastName}
             onChange={changeHandler}
             className="w-full placeholder:text-gray-400 placeholder:text-sm p-[10px] border outline-0 rounded-lg"
+            required
           />
         </div>
         <div>
@@ -94,6 +96,7 @@ const Update = () => {
             value={inputData.email}
             onChange={changeHandler}
             className="w-full placeholder:text-gray-400 placeholder:text-sm p-[10px] border outline-0 rounded-lg"
+            required
           />
         </div>
         <div>
@@ -108,6 +111,7 @@ const Update = () => {
             value={inputData.age}
             onChange={changeHandler}
             className="w-full placeholder:text-gray-400 placeholder:text-sm p-[10px] border outline-0 rounded-lg"
+            required
           />
         </div>
         <div>
@@ -115,6 +119,7 @@ const Update = () => {
             Skills
           </label>
           <CreatableReactSelect
+            required
             id="skills"
             placeholder="Select a skills please..."
             isMulti
