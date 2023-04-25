@@ -7,4 +7,15 @@
   html {
     font-family: "League Spartan", sans-serif;
   }
+  th,td{
+   @apply px-[.5rem] py-[5px] border
+  }
+}
+@layer components{
+  .btn{
+    @apply  px-[1.5rem] py-[.5rem]  rounded-[16px] text-white hover:opacity-90 transition-all ease-in text-sm
+  }
+  .badge{
+    @apply bg-green-700 rounded-full p-[4px] text-white cursor-pointer
+  }
 }
