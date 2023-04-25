@@ -19,7 +19,7 @@ export const usersReducer = (state = initialState, action) => {
       return [...action.payload];
     case CREATE_USER:
       const existedUser = state.find(
-        (user) => user.email === action.payload.email
+        ({ email }) => email === action.payload.email
       );
       if (existedUser) {
         toast.error("User Existed");
@@ -31,7 +31,7 @@ export const usersReducer = (state = initialState, action) => {
       return [...state];
     case UPDATE_USER:
       const indexU = state.findIndex(
-        (user) => user.email === action.currentEmail
+        ({ email }) => email === action.currentEmail
       );
       if (action.currentEmail === action.payload.email) {
         state[indexU] = { ...action.payload };
@@ -39,7 +39,7 @@ export const usersReducer = (state = initialState, action) => {
         setLocalStorage("users", state);
         return [...state];
       }
-      if (state.find((user) => user.email === action.payload.email)) {
+      if (state.find(({ email }) => email === action.payload.email)) {
         toast.error(
           "The user (email) you entered already has an account in the system"
         );
@@ -52,7 +52,7 @@ export const usersReducer = (state = initialState, action) => {
       return [...state];
 
     case DELETE_USER:
-      const filteredUsers = state.filter((user) => user.email !== action.email);
+      const filteredUsers = state.filter(({ email }) => email !== action.email);
       setLocalStorage("users", [...filteredUsers]);
       toast.success("User Deleted");
       return [...filteredUsers];

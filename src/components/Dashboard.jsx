@@ -11,6 +11,7 @@ const Dashboard = () => {
   const { storage } = useStorage("users");
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
+  
   useEffect(() => {
     storage && dispatch(cloneStorageInState(storage));
   }, []);

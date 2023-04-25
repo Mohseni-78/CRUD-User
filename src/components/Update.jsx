@@ -13,20 +13,20 @@ import { v4 as uuidV4 } from "uuid";
 import { toast } from "react-hot-toast";
 
 const Update = () => {
+  const [skills, setSkills] = useState([]);
   const [inputData, setInputData] = useState({
     name: "",
     lastName: "",
     email: "",
     age: "",
   });
-  const [skills, setSkills] = useState([]);
   const { email } = useParams();
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const existedUser = state.find((user) => user.email === email);
+    const existedUser = state.find(({email}) => email === email);
     setInputData({
       name: existedUser.name,
       lastName: existedUser.lastName,

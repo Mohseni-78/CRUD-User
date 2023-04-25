@@ -1,6 +1,6 @@
 import { useState } from "react";
 // React Redux ============>
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createUser } from "../../redux/usersAction";
 // CreatableReactSelect ==========>
 import CreatableReactSelect from "react-select/creatable";
@@ -8,20 +8,18 @@ import CreatableReactSelect from "react-select/creatable";
 import { v4 as uuidV4 } from "uuid";
 // React Router Dom =============>
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const Create = () => {
-  const navigate = useNavigate();
-  const state = useSelector((state) => state);
-  console.log(state);
+  const [skills, setSkills] = useState([]);
   const [inputData, setInputData] = useState({
     name: "",
     lastName: "",
     email: "",
     age: "",
   });
-  const [skills, setSkills] = useState([]);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const reset = () => {
     setInputData({ name: "", lastName: "", email: "", age: "" });
     setSkills([]);
@@ -32,7 +30,7 @@ const Create = () => {
       dispatch(createUser({ ...inputData, skills }));
       reset();
     } catch (err) {
-      console.log(err);
+      toast.error(err);
     }
   };
   const changeHandler = (e) => {

@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" index element={<Dashboard />} />
+        <Route  index element={<Dashboard />} />
         <Route path="/create" element={<Create />} />
         <Route path="/update" element={<>Not Found</>} />
         <Route path="/update/:email" element={<Update />} />
